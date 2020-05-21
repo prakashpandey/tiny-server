@@ -20,6 +20,7 @@ func init() {
 
 func rootHandler(w http.ResponseWriter, r *http.Request) {
 	download := strings.TrimSpace(r.URL.Query().Get("download"))
+	fmt.Printf("download: %s\n", download)
 	if download == "true" {
 		w.Header().Set("Content-Disposition", fmt.Sprintf("attachment; filename=\"%s\"", r.URL.Path))
 	}
